@@ -1,0 +1,35 @@
+<table class="table table-striped" *ngIf = 'tablaVisible'>
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Modificar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = 'let a of listaAutos'>
+      <th>{{a.IdAuto}}</th>
+      <td>{{a.NombreAuto}}</td>
+      <td>{{a.PrecioAuto}}</td>
+      <td><button type="button" class="btn btn-primary"(click) = 'crearFormulario(a)' >Modificar</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<form [formGroup] = "fg" *ngIf = '!tablaVisible'>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" [(ngModel)] = 'nombre' formControlName='NombreAuto' >
+    <small id="emailHelp" class="form-text text-muted">Nombre del auto</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Precio</label>
+    <input type="number" class="form-control" id="exampleInputPassword1" [(ngModel)] = 'precio' formControlName='PrecioAuto'>
+    <small id="emailHelp" class="form-text text-muted">Precio del auto</small>
+  </div>
+</form>
+<div clas = 'container' *ngIf = '!tablaVisible'>
+  <button type="button" class="btn btn-success" (click) = 'guardar()'>Guardar</button>
+  <button type="button" class="btn btn-danger" (click) = 'cancelar()'>Cancelar</button>
+</div>
