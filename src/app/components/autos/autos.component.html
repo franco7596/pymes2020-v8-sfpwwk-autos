@@ -1,21 +1,28 @@
-<table class="table table-striped" *ngIf = 'tablaVisible'>
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Modificar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor = 'let a of listaAutos'>
-      <th>{{a.IdAuto}}</th>
-      <td>{{a.NombreAuto}}</td>
-      <td>{{a.PrecioAuto}}</td>
-      <td><button type="button" class="btn btn-primary"(click) = 'crearFormulario(a)' >Modificar</button></td>
-    </tr>
-  </tbody>
-</table>
+<div clas = 'container col-md-6 offset-md-3'>
+  <table class="table table-striped" *ngIf = 'tablaVisible' >
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Modificar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = 'let a of listaAutos'>
+        <th>{{a.IdAuto}}</th>
+        <td>{{a.NombreAuto}}</td>
+        <td>{{a.PrecioAuto}}</td>
+        <td><button type="button" class="btn btn-primary"(click) = 'crearFormulario(a)' >Modificar</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
 
 <form [formGroup] = "fg" *ngIf = '!tablaVisible'>
   <div class="form-group">
